@@ -9,25 +9,26 @@ export const coreUrl =
   "https://github.com/alemdaar/1337---Common-Core-Projects";
 export const projects = [
   {
-    id: "webserv",
-    number: "01",
-    category: "Systems",
-    name: "Webserv",
-    subtitle: "The web, from the socket up.",
+    id: "transcendence",
+    number: "04",
+    category: "Backend",
+    name: "ft_transcendence",
+    status: "In progress",
+    subtitle: "A multiplayer game, built as a team.",
     description:
-      "An HTTP/1.1 server built from scratch in C++98. One non-blocking event loop, from incoming connections to the final response.",
-    tags: ["C++98", "HTTP/1.1", "Sockets"],
-    path: "Circle_05/Webserv",
+      "An in-progress multiplayer tic-tac-toe platform built with a four-person team. My scope covers the game engine, real-time communication, spectator mode, and a Minimax AI opponent.",
+    tags: ["Node.js", "Express", "PostgreSQL", "WebSocket"],
+    path: null,
     challenge:
-      "Handle concurrent client connections while implementing the HTTP protocol without a web framework.",
+      "Design a server-authoritative game backend that keeps remote players and spectators synchronized while integrating with the team's user and application services.",
     details: [
-      "A single non-blocking event loop handles socket I/O.",
-      "GET, POST and DELETE, chunked transfer encoding, and file uploads.",
-      "CGI execution, static files and directory autoindexing.",
-      "Nginx-style configuration with virtual hosts and location rules.",
+      "Planned stack: Node.js, Express, PostgreSQL, and WebSocket.",
+      "My responsibility: game state, move validation, and result handling.",
+      "Planned real-time features: remote play and spectator updates.",
+      "Planned AI opponent: Minimax for tic-tac-toe.",
     ],
     takeaway:
-      "Working below a framework makes the request lifecycle, partial reads, and connection state explicit.",
+      "The focus is on clear service boundaries, a consistent game state, and reliable communication between the game backend and the rest of the application.",
   },
   {
     id: "inception",

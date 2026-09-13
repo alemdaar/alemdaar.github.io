@@ -42,6 +42,29 @@ function SectionLabel({ number, children }) {
   );
 }
 function ProjectArt({ kind }) {
+  if (kind === "transcendence") {
+    return (
+      <div className="project-art minishell" aria-hidden="true">
+        <div className="art-top">
+          <span>○ ○ ○</span>
+          <span>FT_TRANSCENDENCE · IN PROGRESS</span>
+        </div>
+
+        <div className="shell-art">
+          <p><b>PROJECT</b> Multiplayer tic-tac-toe</p>
+          <p className="muted">Backend architecture in development.</p>
+          <p><b>01</b> Game engine</p>
+          <p><b>02</b> Real-time communication</p>
+          <p><b>03</b> Spectator mode</p>
+          <p><b>04</b> Minimax AI</p>
+        </div>
+
+        <span className="art-caption">
+          Node.js / Express / PostgreSQL / WebSocket
+        </span>
+      </div>
+    );
+  }
   return (
     <div className={"project-art " + kind} aria-hidden="true">
       <div className="art-top">
@@ -160,7 +183,9 @@ function ProjectModal({ project, onClose }) {
         <p className="modal-lead">{project.subtitle}</p>
         <h3>The challenge</h3>
         <p>{project.challenge}</p>
-        <h3>Inside the implementation</h3>
+        <h3>
+          {project.status ? "Scope & planned implementation" : "Inside the implementation"}
+        </h3>
         <ul>
           {project.details.map((d) => (
             <li key={d}>{d}</li>
@@ -170,12 +195,16 @@ function ProjectModal({ project, onClose }) {
           <span className="eyebrow">Engineering perspective</span>
           <p>{project.takeaway}</p>
         </div>
-        <External
-          href={`${coreUrl}/tree/main/${project.path}`}
-          className="button dark"
-        >
-          Explore the source <Github size={17} />
-        </External>
+        {project.path ? (
+          <External
+            href={`${coreUrl}/tree/main/${project.path}`}
+            className="button dark"
+          >
+            Explore the source <Github size={17} />
+          </External>
+        ) : (
+          <p>In development — source link coming soon.</p>
+        )}
       </div>
     </dialog>
   );
@@ -446,7 +475,7 @@ function App() {
         <section id="home" className="hero">
           <div className="hero-top">
             <span className="availability">
-              <span className="dot" /> OPEN TO INTERNSHIP OPPORTUNITIES
+              <span className="dot" /> OPEN TO WORK
             </span>
             <span className="location">
               <MapPin size={13} /> TETOUAN, MOROCCO
@@ -454,7 +483,7 @@ function App() {
           </div>
           <div className="hero-grid">
             <div className="hero-copy">
-              <p className="eyebrow">BACKEND DEVELOPER & SYSTEMS PROGRAMMER</p>
+              <p className="eyebrow">SOFTWARE DEVELOPER</p>
               <h1>
                 Built on curiosity.
                 <br />
@@ -463,9 +492,9 @@ function App() {
                 from the <span className="serif">ground up.</span>
               </h1>
               <p className="hero-description">
-                I’m Oussama. I build the systems behind the screen —
-                <br className="desktop-br" /> from Unix processes and HTTP
-                servers to containerized infrastructure.
+              I’m Oussama, a software developer focused on backend development.
+              I’m building my skills in APIs, databases, and real-time applications,
+              while exploring artificial intelligence and data.
               </p>
               <div className="hero-buttons">
                 <a className="button dark" href="#projects">
@@ -525,16 +554,22 @@ function App() {
             </div>
           </div>
           <div className="hero-bottom">
-            <span>FROM MEMORY TO INFRASTRUCTURE</span>
+            <span>BACKEND DEVELOPMENT · EXPLORING AI & DATA</span>
+
             <div>
-              C & C++
-              <i />
-              Linux & POSIX
-              <i />
-              Docker
-              <i />
-              Java & Spring Boot
+              {[
+                "JavaScript",
+                "Node.js & Express",
+                "Python",
+                "Java & Spring Boot",
+                "PostgreSQL",
+                "Docker",
+                "C & C++",
+              ].map((technology) => (
+                <span key={technology}>{technology}</span>
+              ))}
             </div>
+              
             <a href="#projects" aria-label="Scroll to selected work">
               <ArrowDown size={17} />
             </a>
@@ -554,7 +589,7 @@ function App() {
             </p>
           </div>
           <div className="filters" aria-label="Filter projects">
-            {["All work", "Systems", "Infrastructure"].map((f) => (
+            {["All work", "Backend", "Systems", "Infrastructure"].map((f) => (
               <button
                 aria-pressed={filter === f}
                 key={f}
@@ -562,7 +597,9 @@ function App() {
                 className={filter === f ? "selected" : ""}
               >
                 {f}
-                {f === "All work" && <span>03</span>}
+                {f === "All work" && (
+                  <span>{String(projects.length).padStart(2, "0")}</span>
+                )}
               </button>
             ))}
           </div>
@@ -579,7 +616,10 @@ function App() {
                     <ProjectArt kind={p.id} />
                   </button>
                   <div className="project-meta">
-                    <span>{p.category}</span>
+                  <span>
+                    {p.category}
+                    {p.status ? ` · ${p.status}` : ""}
+                  </span>
                     <span>/{p.number}</span>
                   </div>
                   <h3>
@@ -661,8 +701,8 @@ function App() {
               </div>
               <div>
                 <span>FOCUS</span>
-                <b>Backend & systems</b>
-                <small>Understanding the whole stack</small>
+                <b>Backend · AI & Data</b>
+                <small>Building backends. Exploring AI and data.</small>
               </div>
             </div>
             <External href="https://1337.ma/" className="text-link">
