@@ -1,6 +1,6 @@
 export const profile = {
   name: "Oussama El Hassouni",
-  email: "oelhasso@student.1337.ma",
+  email: "elhassounioussama2@gmail.com",
   phone: "+212 698 792 058",
   github: "https://github.com/alemdaar",
   linkedin: "https://www.linkedin.com/in/oussama-el-hassouni-024228362/",

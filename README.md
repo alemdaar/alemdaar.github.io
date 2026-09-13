@@ -41,11 +41,11 @@ This archive has been prepared locally; it has not been pushed to GitHub or depl
 
 ## Activate “Send a message”
 
-GitHub Pages hosts static files and cannot send email on its own. The form posts to **FormSubmit**, addressed to `oelhasso@student.1337.ma`. It includes your visitor's name, email, subject, and message. Browser validation, a honeypot, and FormSubmit's default CAPTCHA are enabled. The visitor's email is used by the provider for Reply-To.
+GitHub Pages hosts static files and cannot send email on its own. The form posts to **FormSubmit**, addressed to `elhassounioussama2@gmail.com`. It includes your visitor's name, email, subject, and message. Browser validation, a honeypot, and FormSubmit's default CAPTCHA are enabled. The visitor's email is used by the provider for Reply-To.
 
 1. Deploy the site first.
 2. Submit one test message from the live contact form.
-3. Open the activation email sent to **oelhasso@student.1337.ma** and confirm the endpoint. Check spam if needed.
+3. Open the activation email sent to **elhassounioussama2@gmail.com** and confirm the endpoint. Check spam if needed.
 4. Submit another message and verify delivery and reply behavior before sharing the portfolio widely.
 
 The site submits through standard HTML POST and continues to the provider's CAPTCHA / result page. It does **not** display a fake “sent” notification. Delivery depends on activation and the external service. If the service is unavailable, visitors can use the direct email link. No live email was sent during automated verification.
