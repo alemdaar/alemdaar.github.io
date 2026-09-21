@@ -721,6 +721,7 @@ function App() {
             <p>
               A systems foundation.
               <br />A backend direction.
+              <br />An AI perspective.
             </p>
           </div>
           <div className="skills-grid">
