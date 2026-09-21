@@ -26,6 +26,7 @@ import {
   Plus,
   Minus,
   RotateCcw,
+  BrainCircuit,
 } from "lucide-react";
 import { profile, projects, curriculum, coreUrl } from "./data";
 import "./styles.css";
@@ -758,8 +759,23 @@ function App() {
                 ],
               ],
               [
-                <Layers />,
+                <BrainCircuit />,
                 "03",
+                "AI & data",
+                "Exploring intelligent systems and data-driven products.",
+                [
+                  "Python",
+                  "AI concepts",
+                  "Data analysis",
+                  "Prompting",
+                  "Experimentation",
+                  "Model basics",
+                  "Problem framing",
+                ],
+              ],
+              [
+                <Layers />,
+                "04",
                 "Infrastructure & tools",
                 "Connecting code to its environment.",
                 [
