@@ -820,17 +820,26 @@ h1 .serif {
 }
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   border: 1px solid var(--line);
   margin-top: 38px;
 }
+
 .skill-card {
-  padding: 28px;
+  min-width: 0;
+  padding: 32px;
   border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
-.skill-card:last-child {
-  border: 0;
+
+/* Remove the right border from cards 02 and 04 */
+.skill-card:nth-child(2n) {
+  border-right: 0;
+}
+
+/* Remove the bottom border from cards 03 and 04 */
+.skill-card:nth-last-child(-n + 2) {
+  border-bottom: 0;
 }
 .skill-top {
   display: flex;
@@ -1515,10 +1524,19 @@ dialog::backdrop {
   .skills-grid {
     grid-template-columns: 1fr;
   }
+
   .skill-card {
+    padding: 26px;
     border-right: 0;
     border-bottom: 1px solid var(--line);
-    padding: 26px;
+  }
+
+  .skill-card:nth-last-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .skill-card:last-child {
+    border-bottom: 0;
   }
   .skill-top {
     margin-bottom: 20px;
