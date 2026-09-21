@@ -692,7 +692,7 @@ function App() {
             <p>
               I’m now developing my backend skills with{" "}
               <strong>Java and Spring Boot</strong>, with a growing interest in 
-              <strong>AI and data</strong>.
+              <strong> AI and data</strong>.
             </p>
             <div className="about-facts">
               <div>
