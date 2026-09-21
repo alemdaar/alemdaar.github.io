@@ -746,9 +746,11 @@ function App() {
                 "Backend development",
                 "Building on a strong foundation.",
                 [
-                  "Java · learning",
-                  "Spring Boot · learning",
                   "Python",
+                  "Java",
+                  "Spring Boot",
+                  "Node.js",
+                  "Express",
                   "REST APIs",
                   "HTTP",
                   "Sockets",
